@@ -1,0 +1,16 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{F454B15D-47B0-1C2E-27B7-A7A5409594A1}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "MUNECK_v2",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		}
+	]
+}
