@@ -12,5 +12,21 @@
 				"Engine"
 			]
 		}
+<<<<<<< HEAD
+=======
+	],
+	"Plugins": [
+		{
+			"Name": "GoogleARCore",
+			"Enabled": true,
+			"SupportedTargetPlatforms": [
+				"Android"
+			]
+		},
+		{
+			"Name": "ARUtilities",
+			"Enabled": true
+		}
+>>>>>>> 4cd8f15 (Final state)
 	]
 }
