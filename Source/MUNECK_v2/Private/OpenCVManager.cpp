@@ -2,35 +2,7 @@
 
 
 #include "OpenCVManager.h"
-<<<<<<< HEAD
 
-// Sets default values
-AOpenCVManager::AOpenCVManager(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
-{
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
-    rootComp = CreateDefaultSubobject<USceneComponent>("Root");
-    Screen_Raw = CreateDefaultSubobject<UStaticMeshComponent>("Screen Raw");
-    Screen_Post = CreateDefaultSubobject<UStaticMeshComponent>("Screen Post");
-
-    Brightness = 0;
-    Multiply = 1;
-    // Initialize OpenCV and webcam properties
-    CameraID = 0;
-    VideoTrackID = 0;
-    isStreamOpen = false;
-    VideoSize = FVector2D(1920, 1080);
-    RefreshRate = 30.0f;
-
-    
-}
-
-// Called when the game starts or when spawned
-void AOpenCVManager::BeginPlay()
-{
-	Super::BeginPlay();
-
-=======
 #include <winbase.h>
 
 #undef UpdateResource
@@ -175,7 +147,6 @@ void AOpenCVManager::BeginPlay(){
     //    std::cout << "初始化模型失败\n";
     //}
     /* TEMP DISABLED camera component not needed
->>>>>>> 4cd8f15 (Final state)
     isStreamOpen = true;
     // Prepare the color data array
     ColorData.AddDefaulted(VideoSize.X * VideoSize.Y);
@@ -190,29 +161,15 @@ void AOpenCVManager::BeginPlay(){
     Camera_Texture2D->MipGenSettings = TMGS_NoMipmaps;
 #endif
     Camera_Texture2D->SRGB = Camera_RenderTarget->SRGB;
-<<<<<<< HEAD
-=======
+
     */
->>>>>>> 4cd8f15 (Final state)
 }
 
 // Called every frame
 void AOpenCVManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-<<<<<<< HEAD
-    RefreshTimer += DeltaTime;
-    //FVector2D FacePos;
-    if (isStreamOpen && RefreshTimer >= 1.0f / RefreshRate)
-    {
-        RefreshTimer -= 1.0f / RefreshRate;
-        ReadFrame(FacePos); 
-        OnNextVideoFrame();
-    }
-}
 
-bool AOpenCVManager::ReadFrame(FVector2D fpos) {
-=======
     // RefreshTimer += DeltaTime;
     //FVector2D FacePos;
     //ReadFrame(FacePos);
@@ -228,7 +185,7 @@ bool AOpenCVManager::ReadFrame(FVector2D fpos) {
 
 bool AOpenCVManager::ReadFrame(FVector2D fpos) {
     /*TEMP DISABLED camera component not needed
->>>>>>> 4cd8f15 (Final state)
+
     if (!Camera_Texture2D || !Camera_RenderTarget) return false;
     // Read the pixels from the RenderTarget and store them in a FColor array
     //TArray<FColor> SurfData;
@@ -238,10 +195,7 @@ bool AOpenCVManager::ReadFrame(FVector2D fpos) {
     int cvColorMode = CV_8UC4;
     // Get the color data
     cvMat = cv::Mat(cvSize, cvColorMode, ColorData.GetData());
-<<<<<<< HEAD
-    // do fun stuff here(convert things)
-    DetectFace(cvMat, fpos);
-=======
+
 
     //detect face
     unsigned char* pImageData = cvMat.data;
@@ -264,7 +218,7 @@ bool AOpenCVManager::ReadFrame(FVector2D fpos) {
     //DetectFace(cvMat, fpos);
     
     /*TEMP DISABLED camera component not needed
->>>>>>> 4cd8f15 (Final state)
+
     //cvMat.convertTo(cvMat, -1, Multiply, Brightness);
 
     // show the openCV window
@@ -278,19 +232,14 @@ bool AOpenCVManager::ReadFrame(FVector2D fpos) {
     Camera_Texture2D->PlatformData->Mips[0].BulkData.Unlock();
     // Apply Texture changes to GPU memory
     Camera_Texture2D->UpdateResource();
-<<<<<<< HEAD
-    
-    return true;
-}
 
-=======
     */
     
     
     return true;
 }
 /*
->>>>>>> 4cd8f15 (Final state)
+
 bool AOpenCVManager::DetectFace(cv::Mat CVTexture, FVector2D& OutPos)
 {
     cv::CascadeClassifier FaceCascade;
@@ -322,8 +271,7 @@ bool AOpenCVManager::DetectFace(cv::Mat CVTexture, FVector2D& OutPos)
 
 
 }
-<<<<<<< HEAD
-=======
+
 */
 
 
@@ -332,5 +280,5 @@ void AOpenCVManager::EndPlay(const EEndPlayReason::Type EndPlayReason)
     // Super::EndPlay(EndPlayReason);
     // if(((Func_Release)Release_Graph)()) UE_LOG(LogTemp, Log, TEXT("Release_Graph Succ\n"));
 }
->>>>>>> 4cd8f15 (Final state)
+
 

@@ -12,8 +12,6 @@
 				"Engine"
 			]
 		}
-<<<<<<< HEAD
-=======
 	],
 	"Plugins": [
 		{
@@ -26,7 +24,10 @@
 		{
 			"Name": "ARUtilities",
 			"Enabled": true
+		},
+		{
+			"Name": "MediaPipe",
+			"Enabled": true
 		}
->>>>>>> 4cd8f15 (Final state)
 	]
 }

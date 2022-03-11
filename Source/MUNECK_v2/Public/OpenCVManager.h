@@ -2,12 +2,6 @@
 
 #pragma once
 
-<<<<<<< HEAD
-#include "CoreMinimal.h"
-#include "GameFramework/Actor.h"
-
-#include "opencv2/core.hpp"
-=======
 
 
 #include "GameFramework/Actor.h"
@@ -17,63 +11,41 @@
 //#include "opencv2/core.hpp"
 #include "D:\programming\mediapipe\Google_Mediapipe_Hand_Tracking_dll-main\dll_use_example\Mediapipe_Hand_Tracking_Test\third\OpenCV\include\opencv2\core\core.hpp"
 
->>>>>>> 4cd8f15 (Final state)
 #include "MediaTexture.h"
 #include "Runtime/Engine/Classes/Engine/Texture2D.h"
 #include "Runtime/Engine/Classes/Engine/TextureRenderTarget2D.h"
 #include "Components/SceneCaptureComponent2D.h"
 
-<<<<<<< HEAD
-#include "opencv2/objdetect/objdetect.hpp"
-#include "opencv2/objdetect/detection_based_tracker.hpp"
-#include "opencv2/objdetect/objdetect_c.h"
-=======
 //#include "opencv2/objdetect/objdetect.hpp"
 //#include "opencv2/objdetect/detection_based_tracker.hpp"
 //#include "opencv2/objdetect/objdetect_c.h"
->>>>>>> 4cd8f15 (Final state)
+
 #include "opencv2/highgui.hpp"
 #include "opencv2/imgproc.hpp"
 #include "opencv2/videoio.hpp"
 #include <iostream>
-<<<<<<< HEAD
-=======
+
 //#include <opencv2/core/core.hpp> 
 
 #include "DynamicModuleLoader.h"
->>>>>>> 4cd8f15 (Final state)
+
 
 #include "OpenCVManager.generated.h"
 
 
-<<<<<<< HEAD
-=======
 
-
-
-
->>>>>>> 4cd8f15 (Final state)
 UCLASS()
 class MUNECK_V2_API AOpenCVManager : public AActor
 {
 	GENERATED_BODY()
-<<<<<<< HEAD
-=======
 	typedef int (*Func_InitGraph)(const char* model_path);
 	typedef int (*Func_Face_tracking)(float* gs,cv::Mat& Cap);
 	typedef int(*Func_Release)();
 	typedef int(*Func_Get)();
->>>>>>> 4cd8f15 (Final state)
 	
 public:	
 	// Sets default values for this actor's properties
 	AOpenCVManager(const FObjectInitializer& ObjectInitializer);
-<<<<<<< HEAD
-
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-=======
 	void* Init_Graph;
 	void* Track_face;
 	void* Release_Graph;
@@ -86,7 +58,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 	virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
->>>>>>> 4cd8f15 (Final state)
+
 
 public:	
 	// Called every frame
@@ -126,15 +98,14 @@ public:
 		float Brightness;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = OpenCV)
 		float Multiply;
-<<<<<<< HEAD
-=======
+
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = OpenCV)
 		float Turn;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = OpenCV)
 		float Tilt;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = OpenCV)
 		float Nod;
->>>>>>> 4cd8f15 (Final state)
+
 
 	// Camera Media Player
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = Input)
