@@ -69,8 +69,8 @@ void Parse(LandmarkParser& Parser, IUmpObserver* Observer, TArray<FMediaPipeLand
 		return;
 	}
 
-	const auto& Message = UmpCastPacket<TList>(Observer->GetData());
-	Parser.Parse(Message, MultiLandmarks, Count);
+	const auto& Message = UmpCastPacket<TList>(Observer->GetData()); //in the message lies the landmarks
+	Parser.Parse(Message, MultiLandmarks, Count); // send the message to parser to parse the xyz into UE vectors.
 }
 
 // WARNING: executed in MediaPipe thread context!
@@ -120,6 +120,22 @@ const FMediaPipeLandmark& UMediaPipeLandmarkObserverComponent::GetLandmark(int O
 	static FMediaPipeLandmark Dummy;
 	return Dummy;
 }
+
+
+const FMediaPipeFaceRotation& UMediaPipeLandmarkObserverComponent::GetFaceStatus(int ObjectId)
+{
+	//const auto& List = GetLandmarkList(ObjectId);
+	float turn = -GetLandmark(ObjectId, 33).Pos[0] + GetLandmark(ObjectId, 263).Pos[0];
+	float tilt = atan((GetLandmark(ObjectId, 33).Pos[2] - GetLandmark(ObjectId, 263).Pos[2])/ (GetLandmark(ObjectId, 33).Pos[1] - GetLandmark(ObjectId, 263).Pos[1]))+3.1415926/2.0;
+	float nod = - GetLandmark(ObjectId, 1).Pos[0] + GetLandmark(ObjectId, 168).Pos[0];
+	
+	static FMediaPipeFaceRotation Dum;
+	Dum.Turn = turn;
+	Dum.Tilt = tilt;
+	Dum.Nod = nod;
+	return Dum;
+}
+
 
 bool UMediaPipeLandmarkObserverComponent::TryGetLandmarkList(int ObjectId, TArray<FMediaPipeLandmark>& LandmarkList)
 {

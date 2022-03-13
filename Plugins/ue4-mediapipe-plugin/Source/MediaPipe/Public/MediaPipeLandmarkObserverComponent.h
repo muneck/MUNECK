@@ -28,14 +28,29 @@ struct FMediaPipeLandmark
 {
 	GENERATED_BODY()
 
-	UPROPERTY(BlueprintReadOnly)
-	FVector Pos = {0, 0, 0};
+		UPROPERTY(BlueprintReadOnly)
+		FVector Pos = { 0, 0, 0 };
 
 	UPROPERTY(BlueprintReadOnly)
-	float Visibility = 0;
+		float Visibility = 0;
 
 	UPROPERTY(BlueprintReadOnly)
-	float Presence = 0;
+		float Presence = 0;
+};
+
+USTRUCT(BlueprintType)
+struct FMediaPipeFaceRotation
+{
+	GENERATED_BODY()
+
+	UPROPERTY(BlueprintReadOnly)
+		float Turn = 0;
+
+	UPROPERTY(BlueprintReadOnly)
+		float Tilt = 0;
+
+	UPROPERTY(BlueprintReadOnly)
+		float Nod = 0;
 };
 
 UCLASS(ClassGroup="MediaPipe", meta=(BlueprintSpawnableComponent))
@@ -68,11 +83,14 @@ public:
 
 	UPROPERTY(Category="MediaPipe|Landmarks", BlueprintReadWrite, EditAnywhere)
 	float MinPresence = -1;
-
+	
 	// Getters
 
-	UFUNCTION(Category="MediaPipe", BlueprintCallable, BlueprintPure)
-	const TArray<FMediaPipeLandmark>& GetLandmarkList(int ObjectId);
+	UFUNCTION(Category = "MediaPipe", BlueprintCallable, BlueprintPure)
+		const TArray<FMediaPipeLandmark>& GetLandmarkList(int ObjectId);
+
+	UFUNCTION(Category = "MediaPipe", BlueprintCallable, BlueprintPure)
+		const FMediaPipeFaceRotation& GetFaceStatus(int ObjectId);
 
 	UFUNCTION(Category="MediaPipe", BlueprintCallable, BlueprintPure)
 	const FMediaPipeLandmark& GetLandmark(int ObjectId, int LandmarkId);
@@ -87,6 +105,7 @@ public:
 
 	UFUNCTION(Category="MediaPipe", BlueprintCallable)
 	void DrawDebugLandmarks(int ObjectId, const FTransform& Transform, float PrimitiveScale = 1.0f, FLinearColor Color = FLinearColor(0, 1, 0, 1));
+
 
 protected:
 	void OnUmpPacket(class IUmpObserver* Observer) override;
