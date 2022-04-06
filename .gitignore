@@ -241,3 +241,4 @@ shi/
 /Binaries/Win64/MUNECK_v2.pdb
 !*.uasset
 !*.umap
+!*.lib
