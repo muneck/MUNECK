@@ -85,6 +85,10 @@ Global
 		{C398BFAD-EC32-4C66-9E78-0BF3C70AC3E4} = {94A6C6F3-99B3-346E-9557-ABF9D4064DBD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
+<<<<<<< HEAD
 		SolutionGuid = {222E38D0-60E9-4A86-B39C-32E7D909CE02}
+=======
+		SolutionGuid = {C182194F-E8C6-4975-B108-3FAD980658EB}
+>>>>>>> development
 	EndGlobalSection
 EndGlobal

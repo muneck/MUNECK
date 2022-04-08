@@ -9,8 +9,6 @@
 
 
 #include "opencv2/core.hpp"
-//#include "D:\programming\mediapipe\Google_Mediapipe_Hand_Tracking_dll-main\dll_use_example\Mediapipe_Hand_Tracking_Test\third\OpenCV\include\opencv2\core\core.hpp"
-
 #include "MediaTexture.h"
 #include "Runtime/Engine/Classes/Engine/Texture2D.h"
 #include "Runtime/Engine/Classes/Engine/TextureRenderTarget2D.h"
