@@ -242,3 +242,4 @@ shi/
 !*.uasset
 !*.umap
 !*.lib
+!*.pbtxt
