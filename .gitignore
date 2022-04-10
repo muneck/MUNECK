@@ -240,6 +240,9 @@ shi/
 .db
 /Binaries/Win64/MUNECK_v2.exe
 /Binaries/Win64/MUNECK_v2.pdb
+/Binaries/Win64/MUNECK_v2Editor.target
+/Binaries/Win64/UE4editor.modules
+/*.sln
 !*.uasset
 !*.umap
 !*.lib
