@@ -1,0 +1,26 @@
+{
+	"NoteNum": 10,
+	"NoteList": [
+		{
+			"Type": "flick",
+			"Rail": -2,
+			"Length": 0.0,
+			"StartTime": 1.0,
+			"DelayTime": 1.0
+		},
+		{
+			"Type": "hold",
+			"Rail": -1,
+			"Length": 1.0,
+			"StartTime": 2.0,
+			"DelayTime": 1.0
+		},
+		{
+			"Type": "avoid",
+			"Rail": 0,
+			"Length": 1.0,
+			"StartTime": 3.0,
+			"DelayTime": 2.0
+		}
+	]
+}
