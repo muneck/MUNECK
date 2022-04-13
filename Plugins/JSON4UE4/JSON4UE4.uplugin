@@ -1,0 +1,34 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.2.4",
+	"FriendlyName": "JSON4UE4(JSON For UE4)",
+	"Description": "You can use this plugin to parsing any JSON File or JSON String with UE4 Blueprints. The parsing speed is very fast.",
+	"Category": "JSON",
+	"CreatedBy": "YeHaike(841660657@qq.com)",
+	"CreatedByURL": "https://gitlab.com/UE4MarketplaceSubmission_Public/JSON4UE4_Public",
+	"DocsURL": "https://gitlab.com/UE4MarketplaceSubmission_Public/JSON4UE4_Public",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/798c7f4ecd9f46f8ab6f906a5f294364",
+	"SupportURL": "mailto: 841660657@qq.com",
+	"EngineVersion": "4.26.0",
+	"CanContainContent": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "JSON4UE4",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [
+				"Mac",
+				"Linux",
+				"Win64",
+				"Win32",
+				"IOS",
+				"Android",
+				"TVOS",
+				"XboxOne",
+				"PS4"
+			]
+		}
+	]
+}
