@@ -205,7 +205,9 @@ Intermediate/
 obj/
 
 # Ignore any saved local files
-Saved/
+Saved/*
+#but get savedgame
+!Saved/SaveGames
 /Engine/Programs/MemoryProfiler2/**
 /Engine/Programs/UnrealBuildTool/**
 /LocalBuilds/
@@ -255,3 +257,4 @@ shi/
 !*.lib
 !*.pbtxt
 !*.tflite
+!*.sav
