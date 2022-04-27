@@ -236,6 +236,7 @@ Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/**
 #other overdriving ignores
 !**/*.dll
 !/Plugins/
+!/Content/Charts/
 .vs/
 shi/
 .ipch
