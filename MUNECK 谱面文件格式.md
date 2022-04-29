@@ -40,8 +40,8 @@ StillAlive/
     "ChartOffset": -0.01,
     "Difficulties": [
         {
-            "DiffucultyName": "Easy",
-            "Diffuculty": 2,
+            "DifficultyName": "Easy",
+            "Difficulty": 2,
             "Chart": "chart2.json",
             "ChartDesigner": "A very GLaD MUNECK team"
         }

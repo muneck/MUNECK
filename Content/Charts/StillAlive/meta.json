@@ -7,9 +7,9 @@
 	"ChartOffset": -0.01,
 	"Difficulties": [
 		{
-			"DiffucultyName": "Easy",
-			"Diffuculty": 2,
-			"Chart": "chart2.json",
+			"DifficultyName": "Easy",
+			"Difficulty": 2,
+			"Chart": "chart5.json",
 			"ChartDesigner": "A very GLaD MUNECK team"
 		}
 	]
