@@ -60,8 +60,10 @@ StillAlive/
   - `Length`：持续长度，仅会在键型为 `hold` 和 `avoid` 时读取，取值一切非负实数
   - `StartTime`：**音符碰到 receiver** 的时间，单位为秒
   - `DelayTime`：音符在 `StartTime` 之前多长时间出现，可近似为下落速度
-    注：实际编程中，**音符应该在 `StartTime - DelayTime + DefaultOffset`** 时刻生成，其中 `DefaultOffset = min{ NoteList[i].StartTime - NoteList[i].DelayTime } (i = 0, 1, ..., NoteNum - 1)`，用来解决负数 tick 问题
-
+  
+    >注：实际编程中，**音符应该在 `StartTime - DelayTime + DefaultOffset`** 时刻生成，其中 `DefaultOffset = min{ NoteList[i].StartTime - NoteList[i].DelayTime } (i = 0, 1, ..., NoteNum - 1)`，用来解决负数 tick 问题
+    
+    >注2：`BP_notes_controller` 的 `current_tick` 是从 `max{0，DefaultOffset}` 开始累加的，而歌曲的播放时间永远是`current_tick=0`
 ### 示例
 
 ```json
