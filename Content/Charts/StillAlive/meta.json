@@ -4,11 +4,11 @@
 	"IllustrationFile": "illustration.jpg",
 	"Artist": "Jonathan Coulton",
 	"Illustrator": "Valve Corporation",
-	"ChartOffset": -0.01,
+	"ChartOffset": 0.0,
 	"Difficulties": [
 		{
 			"DifficultyName": "Easy",
-			"Difficulty": 2,
+			"Difficulty": 5,
 			"Chart": "chart5.json",
 			"ChartDesigner": "A very GLaD MUNECK team"
 		}
