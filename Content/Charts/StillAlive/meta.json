@@ -1,0 +1,16 @@
+{
+	"Name": "Still Alive",
+	"MusicFile": "music.mp3",
+	"IllustrationFile": "illustration.jpg",
+	"Artist": "Jonathan Coulton",
+	"Illustrator": "Valve Corporation",
+	"ChartOffset": 0.0,
+	"Difficulties": [
+		{
+			"DifficultyName": "Easy",
+			"Difficulty": 5,
+			"Chart": "chart5.json",
+			"ChartDesigner": "A very GLaD MUNECK team"
+		}
+	]
+}
