@@ -37,6 +37,11 @@
 			"Name": "JSON4UE4",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/798c7f4ecd9f46f8ab6f906a5f294364"
+		},
+		{
+			"Name": "RuntimeAudioImporter",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/81fd278e318e4235a028d3fdf46bf036"
 		}
 	]
 }
