@@ -253,9 +253,15 @@ shi/
 /Binaries/Win64/UE4Editor-MUNECK_v2-Win64-DebugGame.dll
 /Binaries/Win64/UE4Editor.modules
 
+#all the editor data
 !*.uasset
 !*.umap
 !*.lib
 !*.pbtxt
 !*.tflite
-!*.sav
+
+# the song data in charts
+!*.mp3
+!*.wav
+!*.ogg
+!*.flac
