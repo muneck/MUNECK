@@ -1,0 +1,40 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Runtime Audio Importer",
+	"Description": "Runtime Audio Importer is an open-source plugin for importing audio of various formats at runtime. Supported formats: MP3, WAV, FLAC, OGG Vorbis, Signed 16-bit, Signed 32-bit, Unsigned 8-bit, 32-bit float.",
+	"Category": "Audio",
+	"CreatedBy": "Georgy Treshchev",
+	"CreatedByURL": "https://github.com/gtreshchev",
+	"DocsURL": "https://github.com/gtreshchev/RuntimeAudioImporter/wiki",
+	"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/81fd278e318e4235a028d3fdf46bf036",
+	"SupportURL": "https://telegram.me/gtreshchev",
+	"EngineVersion": "4.26.0",
+	"CanContainContent": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "RuntimeAudioImporter",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"WhitelistPlatforms": [
+				"Win64",
+				"Mac",
+				"Android",
+				"IOS",
+				"Linux",
+				"PS4",
+				"Switch"
+			],
+			"BlacklistPlatforms": [
+				"TVOS"
+			]
+		},
+		{
+			"Name": "RuntimeAudioImporterEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	]
+}
