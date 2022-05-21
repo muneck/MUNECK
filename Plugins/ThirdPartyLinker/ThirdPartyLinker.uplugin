@@ -1,0 +1,24 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "ThirdPartyLinker",
+	"Description": "include 3parties dll and shared objects into packing",
+	"Category": "Other",
+	"CreatedBy": "Tommix626",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"CanContainContent": true,
+	"IsBetaVersion": false,
+	"IsExperimentalVersion": false,
+	"Installed": false,
+	"Modules": [
+		{
+			"Name": "ThirdPartyLinker",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	]
+}

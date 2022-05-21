@@ -234,7 +234,6 @@ Engine/Extras/ThirdPartyNotUE/SDKs/HostLinux/**
 
 
 #other overdriving ignores
-!**/*.dll
 !/Plugins/
 !/Content/Charts/
 .vs/
@@ -256,9 +255,14 @@ shi/
 #all the editor data
 !*.uasset
 !*.umap
+
+#thirdparty libraries
 !*.lib
 !*.pbtxt
 !*.tflite
+!**/*.dll
+!*.so
+Binaries/Android/
 
 # the song data in charts
 !*.mp3

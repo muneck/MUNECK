@@ -2,11 +2,14 @@
 #include "MediaPipePipelineComponent.h"
 #include "MediaPipeShared.h"
 #include "DrawDebugHelpers.h"
+#include <vector>
 
+#if 1 //PLATFORM_WINDOWS
 #include "mediapipe/framework/formats/landmark.pb.h"
-
+#endif
 using FMediaPipeLandmarkList = TArray<FMediaPipeLandmark>;
 
+#if PLATFORM_WINDOWS
 UMediaPipeLandmarkObserverComponent::UMediaPipeLandmarkObserverComponent()
 {
 }
@@ -65,7 +68,7 @@ void Parse(LandmarkParser& Parser, IUmpObserver* Observer, TArray<FMediaPipeLand
 {
 	if (!UmpCompareType<TList>(Observer))
 	{
-		PLUGIN_LOG(Error, TEXT("Invalid Landmark message"));
+		//PLUGIN_LOG(Error, TEXT("Invalid Landmark message"));
 		return;
 	}
 
@@ -104,7 +107,7 @@ const TArray<FMediaPipeLandmark>& UMediaPipeLandmarkObserverComponent::GetLandma
 	{
 		return MultiLandmarks[ObjectId];
 	}
-	PLUGIN_LOG(Error, TEXT("ObjectId out of range"));
+	//PLUGIN_LOG(Error, TEXT("ObjectId out of range"));
 	static FMediaPipeLandmarkList Dummy;
 	return Dummy;
 }
@@ -116,7 +119,7 @@ const FMediaPipeLandmark& UMediaPipeLandmarkObserverComponent::GetLandmark(int O
 	{
 		return List[LandmarkId];
 	}
-	PLUGIN_LOG(Error, TEXT("LandmarkId out of range"));
+	//PLUGIN_LOG(Error, TEXT("LandmarkId out of range"));
 	static FMediaPipeLandmark Dummy;
 	return Dummy;
 }
@@ -186,3 +189,42 @@ void UMediaPipeLandmarkObserverComponent::DrawDebugLandmarks(int ObjectId, const
 
 	#endif
 }
+#elif PLATFORM_ANDROID
+UMediaPipeLandmarkObserverComponent::UMediaPipeLandmarkObserverComponent()
+{
+
+}
+
+//delete parser, no outside reference
+
+const TArray<FMediaPipeLandmark>& UMediaPipeLandmarkObserverComponent::GetLandmarkList(int ObjectId)
+{
+	static FMediaPipeLandmarkList Dummy;
+	return Dummy;
+}
+const FMediaPipeLandmark& UMediaPipeLandmarkObserverComponent::GetLandmark(int ObjectId, int LandmarkId)
+{
+	static FMediaPipeLandmark Dummy;
+	return Dummy;
+}
+const FMediaPipeFaceRotation& UMediaPipeLandmarkObserverComponent::GetFaceStatus(int ObjectId)
+{
+	static FMediaPipeFaceRotation Dum;
+	Dum.Turn = -0.114;
+	Dum.Tilt = 0.114;
+	Dum.Nod = -0.114;
+	return Dum;
+}
+bool UMediaPipeLandmarkObserverComponent::TryGetLandmarkList(int ObjectId, TArray<FMediaPipeLandmark>& LandmarkList)
+{
+	return false;
+}
+bool UMediaPipeLandmarkObserverComponent::TryGetLandmark(int ObjectId, int LandmarkId, FMediaPipeLandmark& Landmark)
+{
+	return false;
+}
+void UMediaPipeLandmarkObserverComponent::DrawDebugLandmarks(int ObjectId, const FTransform& Transform, float PrimitiveScale, FLinearColor Color)
+{
+	return;
+}
+#endif

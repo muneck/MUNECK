@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- steps to add to build additions -->
+<root xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+	<buildGradleAdditions>
+		<insert>
+			android {
+			compileSdkVersion 32
+			buildToolsVersion "32.0.0"
+
+			defaultConfig {
+			applicationId "com.example.aartest"
+			minSdkVersion 21
+			targetSdkVersion 32
+			versionCode 1
+			versionName "1.0"
+
+			buildTypes {
+			release {
+			minifyEnabled false
+			proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+			}
+			}
+			compileOptions {
+			sourceCompatibility JavaVersion.VERSION_1_8
+			targetCompatibility JavaVersion.VERSION_1_8
+			}
+			}
+
+			repositories {
+			flatDir {
+			// dirs 'libs'
+			dirs'src/main/libs'
+			}
+			}
+
+			dependencies {
+			implementation fileTree(dir: "libs", include: ["*.jar"])
+			implementation 'androidx.appcompat:appcompat:1.1.0'
+			implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+			implementation 'androidx.navigation:navigation-fragment:2.1.0'
+			implementation 'androidx.navigation:navigation-ui:2.1.0'
+			testImplementation 'junit:junit:4.13'
+			androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+			androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+			// MediaPipe deps
+			implementation 'com.google.flogger:flogger:0.3.1'
+			implementation 'com.google.flogger:flogger-system-backend:0.3.1'
+			implementation 'com.google.code.findbugs:jsr305:3.0.2'
+			implementation 'com.google.guava:guava:27.0.1-android'
+			implementation 'com.google.guava:guava:27.0.1-android'
+			implementation 'com.google.protobuf:protobuf-java:3.11.4'
+			// CameraX core library
+			implementation "androidx.camera:camera-core:1.1.0-alpha03"
+			implementation "androidx.camera:camera-camera2:1.1.0-alpha03"
+			implementation "androidx.camera:camera-core:1.1.0-alpha03"
+			implementation "androidx.camera:camera-lifecycle:1.1.0-alpha03"
+
+			//aar file
+			implementation(name:"mediapipe_face_mesh_gpu",ext:"aar")
+
+			}
+
+		</insert>
+	</buildGradleAdditions>
+
+	<!--copy aar,assets and jni to location-->
+	<!-- optional files or directories to copy to Intermediate/Android/APK -->
+	<resourceCopies>
+		<copyDir src="$S(PluginDir)Android/jniLibs/"
+							dst="$S(BuildDir)/scr/main/jniLibs/" />
+		<copyDir src="$S(PluginDir)Android/assets/"
+							dst="$S(BuildDir)/scr/main/assets/" />
+		<copyDir src="$S(PluginDir)Android/libs/"
+							dst="$S(BuildDir)/scr/main/libs/" />
+		<!--
+			<log text="Copying libopencv_java3.so"/>
+			<isArch arch="armeabi-v7a">
+				<copyFile src="$S(PluginDir)ThirdParty/Test_so/libtest.so"
+								dst="$S(BuildDir)/scr/main/jniLibs/armeabi-v7a/libopencv_java3.so" />
+			
+			</isArch>
+			<isArch arch="arm64-v8a">
+				<copyFile src="$S(PluginDir)ThirdParty/Test_so/libtest.so"
+								dst="$S(BuildDir)/scr/main/jniLibs/arm64-v8a/libopencv_java3.so" />
+			
+			</isArch>
+		-->
+	</resourceCopies>
+
+	<gameActivityImportAdditions>
+		<insert>
+			import com.google.mediapipe.components.CameraHelper;
+			import com.google.mediapipe.components.CameraXPreviewHelper;
+			import com.google.mediapipe.components.ExternalTextureConverter;
+			import com.google.mediapipe.components.FrameProcessor;
+			import com.google.mediapipe.components.PermissionHelper;
+			import com.google.mediapipe.framework.AndroidAssetUtil;
+			import com.google.mediapipe.glutil.EglManager;
+		</insert>
+	</gameActivityImportAdditions>
+
+	<gameActivityClassAdditions>
+		<!--class variables-->
+		<insert>
+			private static final String TAG = "MainActivity";
+
+			private static final String INPUT_NUM_FACES_SIDE_PACKET_NAME = "num_faces";
+			private static final String OUTPUT_LANDMARKS_STREAM_NAME = "multi_face_landmarks";
+			// Max number of faces to detect/process.
+			private static final int NUM_FACES = 1;
+
+			private static final boolean FLIP_FRAMES_VERTICALLY = true;
+
+			private static final int NUM_BUFFERS = 2;
+
+			static {
+			// Load all native libraries needed by the app.
+			System.loadLibrary("mediapipe_jni");
+			try {
+			System.loadLibrary("opencv_java3");
+			} catch (java.lang.UnsatisfiedLinkError e) {
+			// Some example apps (e.g. template matching) require OpenCV 4.
+			System.loadLibrary("opencv_java4");
+			}
+			}
+
+			// Sends camera-preview frames into a MediaPipe graph for processing, and displays the processed
+			// frames onto a {@link Surface}.
+			protected FrameProcessor processor;
+			// Handles camera access via the {@link CameraX} Jetpack support library.
+			protected CameraXPreviewHelper cameraHelper;
+
+			// {@link SurfaceTexture} where the camera-preview frames can be accessed.
+			private SurfaceTexture previewFrameTexture;
+			// {@link SurfaceView} that displays the camera-preview frames processed by a MediaPipe graph.
+			private SurfaceView previewDisplayView;
+
+			// Creates and manages an {@link EGLContext}.
+			private EglManager eglManager;
+			// Converts the GL_TEXTURE_EXTERNAL_OES texture from Android camera into a regular texture to be
+			// consumed by {@link FrameProcessor} and the underlying MediaPipe graph.
+			private ExternalTextureConverter converter;
+
+			// ApplicationInfo for retrieving metadata defined in the manifest.
+			private ApplicationInfo applicationInfo;
+
+			//delay test headrot
+			Handler handler = new Handler();
+			Runnable runnable;
+			int delay = 100;
+		</insert>
+		<!--functions-->
+		<insert>
+			protected int getContentViewLayoutResId() {
+			return R.layout.activity_main;
+			}
+
+			protected void onCameraStarted(SurfaceTexture surfaceTexture) {
+			previewFrameTexture = surfaceTexture;
+			// Make the display view visible to start showing the preview. This triggers the
+			// SurfaceHolder.Callback added to (the holder of) previewDisplayView.
+			previewDisplayView.setVisibility(View.VISIBLE);
+			}
+
+			protected Size cameraTargetResolution() {
+			return null; // No preference and let the camera (helper) decide.
+			}
+
+			public void startCamera() {
+			cameraHelper = new CameraXPreviewHelper();
+			cameraHelper.setOnCameraStartedListener(
+			surfaceTexture -> {
+			onCameraStarted(surfaceTexture);
+			});
+			CameraHelper.CameraFacing cameraFacing =
+			applicationInfo.metaData.getBoolean("cameraFacingFront", false)
+			? CameraHelper.CameraFacing.FRONT
+			: CameraHelper.CameraFacing.BACK;
+			cameraHelper.startCamera(this, cameraFacing, /*unusedSurfaceTexture=*/ null, cameraTargetResolution());
+			//add converter reading the camerainput
+			converter.setSurfaceTexture(previewFrameTexture, 0, 0);
+			//      onPreviewDisplaySurfaceChanged(null,0,100,100); //all the parameter not in used
+			}
+
+
+			protected Size computeViewSize(int width, int height) {
+			return new Size(width, height);
+			}
+
+			protected void onPreviewDisplaySurfaceChanged(
+			SurfaceHolder holder, int format, int width, int height) {
+			// (Re-)Compute the ideal size of the camera-preview display (the area that the
+			// camera-preview frames get rendered onto, potentially with scaling and rotation)
+			// based on the size of the SurfaceView that contains the display.
+			Size viewSize = computeViewSize(width, height);
+			Size displaySize = cameraHelper.computeDisplaySizeFromViewSize(viewSize);
+			boolean isCameraRotated = cameraHelper.isCameraRotated();
+
+			// Connect the converter to the camera-preview frames as its input (via
+			// previewFrameTexture), and configure the output width and height as the computed
+			// display size.
+			converter.setSurfaceTextureAndAttachToGLContext(
+			previewFrameTexture,
+			isCameraRotated ? displaySize.getHeight() : displaySize.getWidth(),
+			isCameraRotated ? displaySize.getWidth() : displaySize.getHeight());
+			}
+
+			private void setupPreviewDisplayView() {
+			previewDisplayView.setVisibility(View.GONE);
+			ViewGroup viewGroup = findViewById(R.id.preview_display_layout);
+			viewGroup.addView(previewDisplayView);
+
+			previewDisplayView
+			.getHolder()
+			.addCallback(
+			new SurfaceHolder.Callback() {
+			@Override
+			public void surfaceCreated(SurfaceHolder holder) {
+			processor.getVideoSurfaceOutput().setSurface(holder.getSurface());
+			}
+
+			@Override
+			public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+			onPreviewDisplaySurfaceChanged(holder, format, width, height);
+			}
+
+			@Override
+			public void surfaceDestroyed(SurfaceHolder holder) {
+			processor.getVideoSurfaceOutput().setSurface(null);
+			}
+			});
+			}
+			//AAR API to UE4
+			public float AAR_get_turn(){
+			float turn=processor.mediapipe_api_get_turn();
+			return turn;
+			}
+			public float AAR_get_tilt(){
+			float tilt=processor.mediapipe_api_get_tilt();
+			return tilt;
+			}
+			public float AAR_get_nod(){
+			float nod=processor.mediapipe_api_get_nod();
+			return nod;
+			}
+
+			public void AAR_get_head_rotation(float[] rotation){
+			rotation[0]=processor.mediapipe_api_get_turn();
+			rotation[1]=processor.mediapipe_api_get_tilt();
+			rotation[2]=processor.mediapipe_api_get_nod();
+			}
+		</insert>
+		<!--override functions-->
+		<insert>
+			@Override
+			public void onRequestPermissionsResult(
+			int requestCode, String[] permissions, int[] grantResults) {
+			super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+			PermissionHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
+			}
+		</insert>
+	</gameActivityClassAdditions>
+
+	<gameActivityOnCreateAdditions>
+		<insert>
+			setContentView(getContentViewLayoutResId());
+
+			try {
+			applicationInfo =
+			getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+			} catch (NameNotFoundException e) {
+			Log.e(TAG, "Cannot find application info: " + e);
+			}
+
+			previewDisplayView = new SurfaceView(this);
+			setupPreviewDisplayView();
+
+			// Initialize asset manager so that MediaPipe native libraries can access the app assets, e.g.,
+			// binary graphs.
+			AndroidAssetUtil.initializeNativeAssetManager(this);
+			eglManager = new EglManager(null);
+			processor =
+			new FrameProcessor(this,eglManager.getNativeContext());
+			processor.getVideoSurfaceOutput().setFlipY(true);
+			PermissionHelper.checkAndRequestCameraPermissions(this);
+		</insert>
+	</gameActivityOnCreateAdditions>
+
+	<gameActivityOnResumeAdditions>
+		<insert>
+			converter =
+			new ExternalTextureConverter(
+			eglManager.getContext(),
+			applicationInfo.metaData.getInt("converterNumBuffers", NUM_BUFFERS));
+			converter.setFlipY(
+			applicationInfo.metaData.getBoolean("flipFramesVertically", FLIP_FRAMES_VERTICALLY));
+			converter.setConsumer(processor);
+			if (PermissionHelper.cameraPermissionsGranted(this)) {
+			startCamera();
+			}
+
+			handler.postDelayed(runnable = new Runnable() {
+			public void run() {
+			handler.postDelayed(runnable, delay);
+			float turn=processor.mediapipe_api_get_turn();
+			float tilt=processor.mediapipe_api_get_tilt();
+			float nod=processor.mediapipe_api_get_nod();
+			Log.println(7,"MainActivity","Head turn,tilt,nod="+Float.toString(turn)+" "+Float.toString(tilt)+" "+Float.toString(nod));
+			}
+			}, delay);
+		</insert>
+	</gameActivityOnResumeAdditions>
+
+	<gameActivityOnPauseAdditions>
+		<insert>
+			converter.close();
+
+			// Hide preview display until we re-open the camera again.
+			previewDisplayView.setVisibility(View.GONE);
+		</insert>
+	</gameActivityOnPauseAdditions>
+
+</root>

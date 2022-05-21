@@ -6,6 +6,7 @@
 #include "Windows/WindowsPlatformProcess.h"
 #endif
 
+#if PLATFORM_WINDOWS
 DEFINE_LOG_CATEGORY(LogMediaPipe);
 
 IMPLEMENT_MODULE(FMediaPipeModule, MediaPipe)
@@ -36,11 +37,8 @@ void FMediaPipeModule::StartupModule()
 
 	#define UMP_LIB_NAME "ump_shared"
 
-	#if PLATFORM_WINDOWS
-		#define UMP_LIB_EXT ".dll"
-	#else
-		#define UMP_LIB_EXT ".so"
-	#endif
+	#define UMP_LIB_EXT ".dll"
+	
 
 	auto Plugin = IPluginManager::Get().FindPlugin(TEXT(PLUGIN_NAME));
 	auto PluginBaseDir = FPaths::ConvertRelativePathToFull(Plugin->GetBaseDir());
@@ -61,21 +59,21 @@ void FMediaPipeModule::StartupModule()
 	LibUmp = FPlatformProcess::GetDllHandle(*LibPath);
 	if (!LibUmp)
 	{
-		PLUGIN_LOG(Error, TEXT("Unable to load: %s"), *LibPath);
+		//PLUGIN_LOG(Error, TEXT("Unable to load: %s"), *LibPath);
 	}
 	else
 	{
 		CreateContextPtr = FPlatformProcess::GetDllExport(LibUmp, TEXT("DYN_UmpCreateContext"));
 		if (!CreateContextPtr)
 		{
-			PLUGIN_LOG(Error, TEXT("Export not found: DYN_UmpCreateContext"));
+			//PLUGIN_LOG(Error, TEXT("Export not found: DYN_UmpCreateContext"));
 		}
 		else
 		{
 			Context = ((UmpCreateContext_Proto*)CreateContextPtr)();
 			if (!Context)
 			{
-				PLUGIN_LOG(Error, TEXT("Unable to create IUmpContext"));
+				//PLUGIN_LOG(Error, TEXT("Unable to create IUmpContext"));
 			}
 			else
 			{
@@ -96,7 +94,6 @@ void FMediaPipeModule::ShutdownModule()
 		Context->Release();
 		Context = nullptr;
 	}
-
 	if (LibUmp)
 	{
 		FPlatformProcess::FreeDllHandle(LibUmp);
@@ -110,15 +107,30 @@ IUmpPipeline* FMediaPipeModule::CreatePipeline()
 
 	if (!Context)
 	{
-		PLUGIN_LOG(Error, TEXT("Invalid state: IUmpContext"));
+		//PLUGIN_LOG(Error, TEXT("Invalid state: IUmpContext"));
 		return nullptr;
 	}
 
 	auto Pipeline = Context->CreatePipeline();
 	if (!Pipeline)
 	{
-		PLUGIN_LOG(Error, TEXT("Unable to create IUmpPipeline"));
+		//PLUGIN_LOG(Error, TEXT("Unable to create IUmpPipeline"));
 	}
 
 	return Pipeline;
 }
+#elif PLATFORM_ANDROID
+void FMediaPipeModule::StartupModule()
+{
+	return;
+}
+void FMediaPipeModule::ShutdownModule()
+{
+	return;
+}
+IUmpPipeline* FMediaPipeModule::CreatePipeline()
+{
+	//IUmpPipeline Pipeline;
+	return nullptr;
+}
+#endif

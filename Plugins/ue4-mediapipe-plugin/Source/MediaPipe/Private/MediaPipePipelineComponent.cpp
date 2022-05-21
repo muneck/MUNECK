@@ -3,7 +3,7 @@
 #include "MediaPipeShared.h"
 #include "MediaPipeModule.h"
 #include "GameFramework/Actor.h"
-
+#if PLATFORM_WINDOWS
 UMediaPipePipelineComponent::UMediaPipePipelineComponent()
 {
 	//PLUGIN_LOG_INFO(TEXT("+UMediaPipePipelineComponent %p"), this);
@@ -76,7 +76,7 @@ void UMediaPipePipelineComponent::AddObserver(class UMediaPipeObserverComponent*
 	PLUGIN_TRACE;
 	if (IsPipelineRunning)
 	{
-		PLUGIN_LOG(Error, TEXT("Invalid state: pipeline running"));
+		//PLUGIN_LOG(Error, TEXT("Invalid state: pipeline running"));
 		return;
 	}
 	if (!Observers.Contains(InObserver))
@@ -88,7 +88,7 @@ void UMediaPipePipelineComponent::RemoveObserver(class UMediaPipeObserverCompone
 	PLUGIN_TRACE;
 	if (IsPipelineRunning)
 	{
-		PLUGIN_LOG(Error, TEXT("Invalid state: pipeline running"));
+		//PLUGIN_LOG(Error, TEXT("Invalid state: pipeline running"));
 		return;
 	}
 	if (Observers.Contains(InObserver))
@@ -100,7 +100,7 @@ void UMediaPipePipelineComponent::RemoveAllObservers()
 	PLUGIN_TRACE;
 	if (IsPipelineRunning)
 	{
-		PLUGIN_LOG(Error, TEXT("Invalid state: pipeline running"));
+		//PLUGIN_LOG(Error, TEXT("Invalid state: pipeline running"));
 		return;
 	}
 	Observers.Empty();
@@ -112,13 +112,13 @@ bool UMediaPipePipelineComponent::Start()
 
 	if (!Impl)
 	{
-		PLUGIN_LOG(Error, TEXT("Invalid state: IUmpPipeline"));
+		//PLUGIN_LOG(Error, TEXT("Invalid state: IUmpPipeline"));
 		return false;
 	}
 
 	if (IsPipelineRunning)
 	{
-		PLUGIN_LOG(Error, TEXT("Invalid state: pipeline running"));
+		//PLUGIN_LOG(Error, TEXT("Invalid state: pipeline running"));
 		return false;
 	}
 
@@ -172,3 +172,55 @@ void UMediaPipePipelineComponent::Stop()
 	if (Impl)
 		Impl->LogProfilerStats();
 }
+#elif PLATFORM_ANDROID
+UMediaPipePipelineComponent::UMediaPipePipelineComponent()
+{
+	PrimaryComponentTick.bCanEverTick = true;
+	bWantsInitializeComponent = true;
+}
+void UMediaPipePipelineComponent::BeginDestroy()
+{
+	Super::BeginDestroy();
+}
+void UMediaPipePipelineComponent::InitializeComponent()
+{
+	Super::InitializeComponent();
+}
+void UMediaPipePipelineComponent::BeginPlay()
+{
+	Super::BeginPlay();
+}
+void UMediaPipePipelineComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	Super::EndPlay(EndPlayReason);
+}
+void UMediaPipePipelineComponent::UninitializeComponent()
+{
+	Super::UninitializeComponent();
+}
+void UMediaPipePipelineComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+{
+	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+}
+bool UMediaPipePipelineComponent::CreatePipeline()
+{
+	return false;
+}
+void UMediaPipePipelineComponent::ReleasePipeline()
+{
+	return;
+}
+void UMediaPipePipelineComponent::AddObserver(class UMediaPipeObserverComponent* InObserver)
+{}
+void UMediaPipePipelineComponent::RemoveObserver(class UMediaPipeObserverComponent* InObserver)
+{}
+void UMediaPipePipelineComponent::RemoveAllObservers()
+{}
+bool UMediaPipePipelineComponent::Start()
+{
+	return false;
+}
+void UMediaPipePipelineComponent::Stop()
+{}
+
+#endif

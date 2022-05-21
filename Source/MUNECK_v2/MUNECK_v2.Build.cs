@@ -51,6 +51,9 @@ public class MUNECK_v2 : ModuleRules
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
+		// Third party plugin
+		PublicDependencyModuleNames.AddRange(new string[] { "MediaPipe" });
+
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
 

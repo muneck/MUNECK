@@ -1,11 +1,14 @@
 #include "MediaPipeClassificationObserverComponent.h"
 #include "MediaPipePipelineComponent.h"
 #include "MediaPipeShared.h"
+#include <vector>
 
+#if PLATFORM_WINDOWS
 #include "mediapipe/framework/formats/classification.pb.h"
-
+#endif
 using FMediaPipeClassificationList = TArray<FMediaPipeClassification>;
 
+#if PLATFORM_WINDOWS
 UMediaPipeClassificationObserverComponent::UMediaPipeClassificationObserverComponent()
 {
 }
@@ -17,7 +20,7 @@ void UMediaPipeClassificationObserverComponent::OnUmpPacket(IUmpObserver* Observ
 
 	if (!UmpCompareType<TList>(Observer))
 	{
-		PLUGIN_LOG(Error, TEXT("Invalid Classification message"));
+		//PLUGIN_LOG(Error, TEXT("Invalid Classification message"));
 		NumDetections = 0;
 		return;
 	}
@@ -56,7 +59,7 @@ const TArray<FMediaPipeClassification>& UMediaPipeClassificationObserverComponen
 	{
 		return MultiClassifications[ObjectId];
 	}
-	PLUGIN_LOG(Error, TEXT("ObjectId out of range"));
+	//PLUGIN_LOG(Error, TEXT("ObjectId out of range"));
 	static FMediaPipeClassificationList Dummy;
 	return Dummy;
 }
@@ -68,7 +71,7 @@ const FMediaPipeClassification& UMediaPipeClassificationObserverComponent::GetCl
 	{
 		return List[ClassificationId];
 	}
-	PLUGIN_LOG(Error, TEXT("ClassificationId out of range"));
+	//PLUGIN_LOG(Error, TEXT("ClassificationId out of range"));
 	static FMediaPipeClassification Dummy;
 	return Dummy;
 }
@@ -96,3 +99,33 @@ bool UMediaPipeClassificationObserverComponent::TryGetClassification(int ObjectI
 	}
 	return false;
 }
+#elif PLATFORM_ANDROID
+UMediaPipeClassificationObserverComponent::UMediaPipeClassificationObserverComponent()
+{
+}
+void UMediaPipeClassificationObserverComponent::OnUmpPacket(IUmpObserver* Observer)
+{
+	return;
+}
+
+const TArray<FMediaPipeClassification>& UMediaPipeClassificationObserverComponent::GetClassificationList(int ObjectId)
+{
+	static FMediaPipeClassificationList Dummy;
+	return Dummy;
+}
+const FMediaPipeClassification& UMediaPipeClassificationObserverComponent::GetClassification(int ObjectId, int ClassificationId)
+{
+	static FMediaPipeClassification Dummy;
+	return Dummy;
+}
+bool UMediaPipeClassificationObserverComponent::TryGetClassificationList(int ObjectId, TArray<FMediaPipeClassification>& ClassificationList)
+{
+	return false;
+}
+bool UMediaPipeClassificationObserverComponent::TryGetClassification(int ObjectId, int ClassificationId, FMediaPipeClassification& Classification)
+{
+	return false;
+}
+
+
+#endif

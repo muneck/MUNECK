@@ -2,7 +2,7 @@
 #include "MediaPipePipelineComponent.h"
 #include "MediaPipeShared.h"
 #include "Engine/World.h"
-
+#if PLATFORM_WINDOWS
 UMediaPipeObserverComponent::UMediaPipeObserverComponent()
 {
 }
@@ -15,14 +15,14 @@ void UMediaPipeObserverComponent::OnPipelineStarting(IUmpPipeline* Pipeline)
 
 	if (StreamName.IsEmpty())
 	{
-		PLUGIN_LOG(Error, TEXT("Invalid property: StreamName"));
+		//PLUGIN_LOG(Error, TEXT("Invalid property: StreamName"));
 		return;
 	}
 
 	Impl = Pipeline->CreateObserver(TCHAR_TO_ANSI(*StreamName));
 	if (!Impl)
 	{
-		PLUGIN_LOG(Error, TEXT("Unable to create IUmpObserver"));
+		//PLUGIN_LOG(Error, TEXT("Unable to create IUmpObserver"));
 		return;
 	}
 
@@ -56,3 +56,33 @@ void UMediaPipeObserverComponent::UpdateTimestamp()
 {
 	LastUpdate = GetWorld()->GetRealTimeSeconds();
 }
+#elif PLATFORM_ANDROID
+UMediaPipeObserverComponent::UMediaPipeObserverComponent()
+{
+	return;
+}
+void UMediaPipeObserverComponent::OnPipelineStarting(IUmpPipeline* Pipeline)
+{
+	return;
+}
+void UMediaPipeObserverComponent::OnPipelineStopping(IUmpPipeline* Pipeline)
+{
+	return;
+}
+void UMediaPipeObserverComponent::OnUmpPresence(class IUmpObserver* observer, bool present)
+{
+	return;
+}
+int UMediaPipeObserverComponent::GetNumDetections()
+{
+	return 0;
+}
+bool UMediaPipeObserverComponent::HaveDetections()
+{
+	return false;
+}
+void UMediaPipeObserverComponent::UpdateTimestamp()
+{
+	return;
+}
+#endif

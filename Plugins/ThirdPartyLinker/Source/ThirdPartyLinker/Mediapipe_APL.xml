@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- steps to add to build additions -->
+<root xmlns:android="http://schemas.android.com/apk/res/android">
+	<!-- init section is always evaluated once per architecture -->
+	<init>
+		<log text="GameFramework init"/>
+		<setBool result="bSupported" value="false"/>
+		<isArch arch="armeabi-v7a">
+			<setBool result="bSupported" value="true"/>
+		</isArch>
+	</init>
+
+	<!-- optional files or directories to copy to Intermediate/Android/APK -->
+	<resourceCopies>
+		<!--delete the checking arch if condition-->
+		<log text="Copying ump_shared.so"/>
+		<copyFile src="$S(PluginDir)/../../ThirdParty/Mediapipe/Binaries/Android/ump_shared.so"
+						dst="$S(BuildDir)/libs/armeabi-v7a/ump_shared.so" /> <!--can we modify this?-->
+
+	</resourceCopies>
+</root>

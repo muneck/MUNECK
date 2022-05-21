@@ -64,5 +64,6 @@ protected:
 
 protected:
 	class IUmpObserver* Impl = nullptr;
-	TAtomic<int> NumDetections = 0;
+	/*TAtomic<int> NumDetections = 0;*/
+	int NumDetections = 0;
 };
