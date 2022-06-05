@@ -265,3 +265,6 @@ shi/
 !*.wav
 !*.ogg
 !*.flac
+
+#the illustration data
+!*.jpg
