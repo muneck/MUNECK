@@ -1,0 +1,16 @@
+{
+	"Name": "Introduction",
+	"MusicFile": "music_final.mp3",
+	"IllustrationFile": "illustration.png",
+	"Artist": "The MUNECK team",
+	"Illustrator": "The MUNECK team",
+	"ChartOffset": 0.0,
+	"Difficulties": [
+		{
+			"DifficultyName": "Easy",
+			"Difficulty": 2,
+			"Chart": "chart2.json",
+			"ChartDesigner": "Iris and the MUNECK team"
+		}
+	]
+}
