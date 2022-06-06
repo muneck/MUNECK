@@ -1,16 +1,22 @@
 {
-	"Name": "Still Alive",
-	"MusicFile": "music.mp3",
-	"IllustrationFile": "illustration.jpg",
-	"Artist": "Jonathan Coulton",
-	"Illustrator": "Valve Corporation",
-	"ChartOffset": 0.0,
-	"Difficulties": [
-		{
-			"DifficultyName": "Easy",
-			"Difficulty": 5,
-			"Chart": "chart5.json",
-			"ChartDesigner": "A very GLaD MUNECK team"
-		}
-	]
+  "Name": "Still Alive",
+  "MusicFile": "music.mp3",
+  "IllustrationFile": "illustration.jpg",
+  "Artist": "Jonathan Coulton",
+  "Illustrator": "Valve Corporation",
+  "ChartOffset": 0.0,
+  "Difficulties": [
+    {
+      "DifficultyName": "Easy",
+      "Difficulty": 5,
+      "Chart": "chart5.json",
+      "ChartDesigner": "A very GLaD MUNECK team"
+    },
+    {
+      "DifficultyName": "Test",
+      "Difficulty": 0,
+      "Chart": "chart0.json",
+      "ChartDesigner": "A very GLaD MUNECK team"
+    }
+  ]
 }
