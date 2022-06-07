@@ -1,0 +1,92 @@
+LogBlueprintUserMessages: [Repository_Widget_C_0] chart:=chart0.json
+song:=StillAlive
+LogBlueprintUserMessages: [Notes_controller_C_0] -2.733,note controller
+LogBlueprintUserMessages: [Notes_controller_C_0] ReleaseED:: Song time=-1
+LogBlueprintUserMessages: [BP_NotePlacer_C_0] receive EDD:: Song time=-1
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] note spd:X=-71.910 Y=0.000 Z=0.000
+LogBlueprintUserMessages: [BP_NoteFlick_C_0] Note Inited: Controller tick=-2.733
+LogBlueprintUserMessages: [BP_NoteFlick_C_0] Note Inited: Song time=-1
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] (NPC) place note at time: Song time=-1
+LogBlueprintUserMessages: [Notes_controller_C_0] -0.733,note controller
+LogBlueprintUserMessages: [Notes_controller_C_0] ReleaseED:: Song time=-1
+LogBlueprintUserMessages: [BP_NotePlacer_C_0] receive EDD:: Song time=-1
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] note spd:X=-55.250 Y=108.300 Z=0.000
+LogBlueprintUserMessages: [BP_NoteFlick_C_1] Note Inited: Controller tick=-0.733
+LogBlueprintUserMessages: [BP_NoteFlick_C_1] Note Inited: Song time=-1
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] (NPC) place note at time: Song time=-1
+LogBlueprintUserMessages: [Notes_controller_C_0] 0.279,note controller
+LogBlueprintUserMessages: [Notes_controller_C_0] ReleaseED:: Song time=0.279
+LogBlueprintUserMessages: [BP_NotePlacer_C_0] receive EDD:: Song time=0.279
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] note spd:X=-55.250 Y=-108.300 Z=0.000
+LogBlueprintUserMessages: [BP_NoteFlick_C_2] Note Inited: Controller tick=0
+LogBlueprintUserMessages: [BP_NoteFlick_C_2] Note Inited: Song time=0.279
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] (NPC) place note at time: Song time=0.279
+LogBlueprintUserMessages: [BP_Note_Receiver_C_2] Receiver0:sound emit at song time:1.103
+LogBlueprintUserMessages: [BP_NoteFlick_C_0] 1.253878
+LogBlueprintUserMessages: [BP_NoteFlick_C_0] Node Life Ends
+LogBlueprintUserMessages: [BP_Note_Receiver_C_0] Receiver-2:sound emit at song time:2.194
+LogBlueprintUserMessages: [BP_NoteFlick_C_1] 2.252336
+LogBlueprintUserMessages: [BP_NoteFlick_C_1] Node Life Ends
+LogBlueprintUserMessages: [BP_Note_Receiver_C_4] Receiver2:sound emit at song time:3.216
+LogBlueprintUserMessages: [Notes_controller_C_0] 3.262,note controller
+LogBlueprintUserMessages: [Notes_controller_C_0] ReleaseED:: Song time=3.262
+LogBlueprintUserMessages: [BP_NotePlacer_C_0] receive EDD:: Song time=3.262
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] note spd:X=-55.250 Y=108.300 Z=0.000
+LogBlueprintUserMessages: [BP_NoteFlick_C_3] Note Inited: Controller tick=0
+LogBlueprintUserMessages: [BP_NoteFlick_C_3] Note Inited: Song time=3.262
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] (NPC) place note at time: Song time=3.262
+LogBlueprintUserMessages: [BP_NoteFlick_C_2] 3.285624
+LogBlueprintUserMessages: [BP_NoteFlick_C_2] Node Life Ends
+LogBlueprintUserMessages: [Notes_controller_C_0] 3.901,note controller
+LogBlueprintUserMessages: [Notes_controller_C_0] ReleaseED:: Song time=3.901
+LogBlueprintUserMessages: [BP_NotePlacer_C_0] receive EDD:: Song time=3.901
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] note spd:X=-316.200 Y=-289.750 Z=0.000
+LogBlueprintUserMessages: [BP_NoteFlick_C_4] Note Inited: Controller tick=0
+LogBlueprintUserMessages: [BP_NoteFlick_C_4] Note Inited: Song time=3.901
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] (NPC) place note at time: Song time=3.901
+LogBlueprintUserMessages: [BP_Note_Receiver_C_3] Receiver1:sound emit at song time:4.899
+LogBlueprintUserMessages: [BP_NoteFlick_C_4] 4.89941
+LogBlueprintUserMessages: [BP_NoteFlick_C_4] Node Life Ends
+LogBlueprintUserMessages: [BP_Note_Receiver_C_0] Receiver-2:sound emit at song time:6.223
+LogBlueprintUserMessages: [Notes_controller_C_0] 6.269,note controller
+LogBlueprintUserMessages: [Notes_controller_C_0] ReleaseED:: Song time=6.269
+LogBlueprintUserMessages: [BP_NotePlacer_C_0] receive EDD:: Song time=6.269
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] note spd:X=-105.400 Y=71.250 Z=0.000
+LogBlueprintUserMessages: [BP_NoteFlick_C_5] Note Inited: Controller tick=0
+LogBlueprintUserMessages: [BP_NoteFlick_C_5] Note Inited: Song time=6.269
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] (NPC) place note at time: Song time=6.269
+LogBlueprintUserMessages: [BP_NoteFlick_C_3] 6.292608
+LogBlueprintUserMessages: [BP_NoteFlick_C_3] Node Life Ends
+LogBlueprintUserMessages: [Notes_controller_C_0] 7.012,note controller
+LogBlueprintUserMessages: [Notes_controller_C_0] ReleaseED:: Song time=7.012
+LogBlueprintUserMessages: [BP_NotePlacer_C_0] receive EDD:: Song time=7.012
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] note spd:X=-95.880 Y=0.000 Z=0.000
+LogBlueprintUserMessages: [BP_NoteHold_C_0] Note Inited: Controller tick=0
+LogBlueprintUserMessages: [BP_NoteHold_C_0] Note Inited: Song time=7.012
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] (NPC) place note at time: Song time=7.012
+LogBlueprintUserMessages: [Notes_controller_C_0] 9.021,note controller
+LogBlueprintUserMessages: [Notes_controller_C_0] ReleaseED:: Song time=9.021
+LogBlueprintUserMessages: [BP_NotePlacer_C_0] receive EDD:: Song time=9.021
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] note spd:X=-55.250 Y=108.300 Z=0.000
+LogBlueprintUserMessages: [BP_NoteHold_C_1] Note Inited: Controller tick=0
+LogBlueprintUserMessages: [BP_NoteHold_C_1] Note Inited: Song time=9.021
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] (NPC) place note at time: Song time=9.021
+LogBlueprintUserMessages: [BP_Note_Receiver_C_1] Receiver-1:sound emit at song time:9.3
+LogBlueprintUserMessages: [BP_NoteFlick_C_5] 9.380861
+LogBlueprintUserMessages: [BP_NoteFlick_C_5] Node Life Ends
+LogBlueprintUserMessages: [BP_Note_Receiver_C_2] Receiver0:sound emit at song time:9.996
+LogBlueprintUserMessages: [Notes_controller_C_0] 10.019,note controller
+LogBlueprintUserMessages: [Notes_controller_C_0] ReleaseED:: Song time=10.019
+LogBlueprintUserMessages: [BP_NotePlacer_C_0] receive EDD:: Song time=10.019
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] note spd:X=-105.400 Y=71.250 Z=0.000
+LogBlueprintUserMessages: [BP_NoteHold_C_2] Note Inited: Controller tick=0
+LogBlueprintUserMessages: [BP_NoteHold_C_2] Note Inited: Song time=10.019
+LogBlueprintUserMessages: [BPAC_NodePlacerComponent] (NPC) place note at time: Song time=10.019
+LogBlueprintUserMessages: [BP_NoteHold_C_0] 10.08907
+LogBlueprintUserMessages: [BP_NoteHold_C_0] Node Life Ends
+LogBlueprintUserMessages: [BP_Note_Receiver_C_0] Receiver-2:sound emit at song time:12.005
+LogBlueprintUserMessages: [BP_NoteHold_C_1] 12.074376
+LogBlueprintUserMessages: [BP_NoteHold_C_1] Node Life Ends
+LogBlueprintUserMessages: [BP_Note_Receiver_C_1] Receiver-1:sound emit at song time:13.015
+LogBlueprintUserMessages: [BP_NoteHold_C_2] 13.072834
+LogBlueprintUserMessages: [BP_NoteHold_C_2] Node Life Ends
