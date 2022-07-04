@@ -2,10 +2,17 @@
   "name": "Guest",
   "scores": [
     {
-      "name": 
+      "name": "StillAlive",
+      "difficulties": [
+        {
+          "difficulty": 5,
+          "score": 0
+        },
+        {
+          "difficulty": 0,
+          "score": 0
+        }
+      ]
     }
   ]
-    "Tutorial": 0,
-  }
-
 }
