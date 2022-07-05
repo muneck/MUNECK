@@ -4,6 +4,111 @@
   "NoteList": [
     {
       "Type": "flick",
+      "Rail": -2,
+      "Length": 0.25,
+      "StartTime": 3.53846,
+      "DelayTime": 2.769231
+    },
+    {
+      "Type": "flick",
+      "Rail": 2,
+      "Length": 0.25,
+      "StartTime": 3.53846,
+      "DelayTime": 2.769231
+    },
+    {
+      "Type": "flick",
+      "Rail": 1,
+      "Length": 0.25,
+      "StartTime": 5.53846,
+      "DelayTime": 2.769231
+    },
+    {
+      "Type": "flick",
+      "Rail": -1,
+      "Length": 0.25,
+      "StartTime": 5.53846,
+      "DelayTime": 2.769231
+    },
+    {
+      "Type": "flick",
+      "Rail": 0,
+      "Length": 0.25,
+      "StartTime": 7.53846,
+      "DelayTime": 2.769231
+    },
+    {
+      "Type": "hold",
+      "Rail": -2,
+      "Length": 1.846154,
+      "StartTime": 7.038462,
+      "DelayTime": 2.769231
+    },
+    {
+      "Type": "hold",
+      "Rail": 2,
+      "Length": 1.846154,
+      "StartTime": 7.038462,
+      "DelayTime": 2.769231
+    },
+    {
+      "Type": "hold",
+      "Rail": 1,
+      "Length": 1.846154,
+      "StartTime": 7.038462,
+      "DelayTime": 2.769231
+    },
+    {
+      "Type": "hold",
+      "Rail": -1,
+      "Length": 1.846154,
+      "StartTime": 7.038462,
+      "DelayTime": 2.769231
+    },
+    {
+      "Type": "hold",
+      "Rail": 0,
+      "Length": 1.846154,
+      "StartTime": 7.038462,
+      "DelayTime": 2.769231
+    },
+    {
+      "Type": "avoid",
+      "Rail": -2,
+      "Length": 3.846154,
+      "StartTime": 10.115385,
+      "DelayTime": 2.769231
+    },
+    {
+      "Type": "avoid",
+      "Rail": -1,
+      "Length": 3.846154,
+      "StartTime": 10.115385,
+      "DelayTime": 2.769231
+    },
+    {
+      "Type": "avoid",
+      "Rail": 0,
+      "Length": 3.846154,
+      "StartTime": 10.115385,
+      "DelayTime": 2.769231
+    },
+    {
+      "Type": "avoid",
+      "Rail": 1,
+      "Length": 3.846154,
+      "StartTime": 10.115385,
+      "DelayTime": 2.769231
+    },
+    {
+      "Type": "avoid",
+      "Rail": 2,
+      "Length": 3.846154,
+      "StartTime": 10.115385,
+      "DelayTime": 2.769231
+    },
+    {
+      "Type": "flick",
       "Rail": 0,
       "Length": -0.230769,
       "StartTime": 77.653846,
