@@ -1,0 +1,17 @@
+{
+	"Name": "Debug Level",
+	"MusicFile": "Jake Miller-Rumors.mp3",
+	"IllustrationFile": "null",
+	"Artist": "The MUNECK team",
+	"Illustrator": "The MUNECK team",
+	"ChartOffset": 0.0,
+	"BPM": 150,
+	"Difficulties": [
+		{
+			"DifficultyName": "Debug",
+			"Difficulty": 0,
+			"Chart": "chart0.json",
+			"ChartDesigner": "MUNECK Dev Team"
+		}
+	]
+}
