@@ -1,0 +1,803 @@
+{
+	"NoteNum": 114,
+	"NoteList": [
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.130435,
+					"StartTime": 5.739130,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.521739,
+					"StartTime": 7.826087,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "hold",
+					"Rail": -1,
+					"Length": 0.130435,
+					"StartTime": 9.913043,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "hold",
+					"Rail": 1,
+					"Length": 0.130435,
+					"StartTime": 12.000000,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 0,
+					"Length": 0.521739,
+					"StartTime": 14.086957,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "hold",
+					"Rail": -1,
+					"Length": 0.260870,
+					"StartTime": 16.173913,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "hold",
+					"Rail": -1,
+					"Length": 0.652174,
+					"StartTime": 18.260870,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "hold",
+					"Rail": 0,
+					"Length": 0.260870,
+					"StartTime": 20.347826,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.652174,
+					"StartTime": 22.434783,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": -1,
+					"Length": 0.652174,
+					"StartTime": 24.521739,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": -1,
+					"Length": 0.260870,
+					"StartTime": 26.608696,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "avoid",
+					"Rail": 0,
+					"Length": 0.130435,
+					"StartTime": 28.695652,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "avoid",
+					"Rail": -2,
+					"Length": 0.521739,
+					"StartTime": 30.782609,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 0,
+					"Length": 0.652174,
+					"StartTime": 32.869565,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": 0,
+					"Length": 0.391304,
+					"StartTime": 34.956522,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.130435,
+					"StartTime": 37.043478,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.521739,
+					"StartTime": 39.130435,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": -1,
+					"Length": 0.521739,
+					"StartTime": 41.217391,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.130435,
+					"StartTime": 43.304348,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 0,
+					"Length": 0.130435,
+					"StartTime": 45.391304,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 0,
+					"Length": 0.652174,
+					"StartTime": 47.478261,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "hold",
+					"Rail": 0,
+					"Length": 0.652174,
+					"StartTime": 49.565217,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "hold",
+					"Rail": 2,
+					"Length": 0.391304,
+					"StartTime": 51.652174,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "avoid",
+					"Rail": 2,
+					"Length": 0.521739,
+					"StartTime": 53.739130,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.391304,
+					"StartTime": 55.826087,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.521739,
+					"StartTime": 57.913043,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "hold",
+					"Rail": 0,
+					"Length": 0.391304,
+					"StartTime": 60.000000,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": -2,
+					"Length": 0.130435,
+					"StartTime": 62.086957,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 0,
+					"Length": 0.260870,
+					"StartTime": 64.173913,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.260870,
+					"StartTime": 66.260870,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.652174,
+					"StartTime": 68.347826,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": -1,
+					"Length": 0.260870,
+					"StartTime": 70.434783,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "hold",
+					"Rail": 1,
+					"Length": 0.130435,
+					"StartTime": 72.521739,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "hold",
+					"Rail": 0,
+					"Length": 0.391304,
+					"StartTime": 74.608696,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": -1,
+					"Length": 0.260870,
+					"StartTime": 76.695652,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": -2,
+					"Length": 0.391304,
+					"StartTime": 78.782609,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.260870,
+					"StartTime": 80.869565,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 0,
+					"Length": 0.260870,
+					"StartTime": 82.956522,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.391304,
+					"StartTime": 85.043478,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.521739,
+					"StartTime": 87.130435,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.130435,
+					"StartTime": 89.217391,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "hold",
+					"Rail": -1,
+					"Length": 0.260870,
+					"StartTime": 91.304348,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.521739,
+					"StartTime": 93.391304,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": -2,
+					"Length": 0.652174,
+					"StartTime": 95.478261,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "avoid",
+					"Rail": 0,
+					"Length": 0.521739,
+					"StartTime": 97.565217,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 0,
+					"Length": 0.130435,
+					"StartTime": 99.652174,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.260870,
+					"StartTime": 101.739130,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": -2,
+					"Length": 0.260870,
+					"StartTime": 103.826087,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 0,
+					"Length": 0.260870,
+					"StartTime": 105.913043,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "avoid",
+					"Rail": 0,
+					"Length": 0.260870,
+					"StartTime": 108.000000,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.391304,
+					"StartTime": 110.086957,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": -2,
+					"Length": 0.521739,
+					"StartTime": 112.173913,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "avoid",
+					"Rail": 1,
+					"Length": 0.521739,
+					"StartTime": 114.260870,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "hold",
+					"Rail": 0,
+					"Length": 0.391304,
+					"StartTime": 116.347826,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": -2,
+					"Length": 0.260870,
+					"StartTime": 118.434783,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "avoid",
+					"Rail": -1,
+					"Length": 0.260870,
+					"StartTime": 120.521739,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "avoid",
+					"Rail": -1,
+					"Length": 0.260870,
+					"StartTime": 122.608696,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "hold",
+					"Rail": 1,
+					"Length": 0.521739,
+					"StartTime": 124.695652,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": -1,
+					"Length": 0.391304,
+					"StartTime": 126.782609,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.521739,
+					"StartTime": 128.869565,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.260870,
+					"StartTime": 130.956522,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": -2,
+					"Length": 0.130435,
+					"StartTime": 133.043478,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": -2,
+					"Length": 0.260870,
+					"StartTime": 135.130435,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": -1,
+					"Length": 0.652174,
+					"StartTime": 137.217391,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 0,
+					"Length": 0.260870,
+					"StartTime": 139.304348,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.652174,
+					"StartTime": 141.391304,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": -2,
+					"Length": 0.391304,
+					"StartTime": 143.478261,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "avoid",
+					"Rail": 0,
+					"Length": 0.260870,
+					"StartTime": 145.565217,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.260870,
+					"StartTime": 147.652174,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "avoid",
+					"Rail": -1,
+					"Length": 0.260870,
+					"StartTime": 149.739130,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "hold",
+					"Rail": 2,
+					"Length": 0.652174,
+					"StartTime": 151.826087,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": -2,
+					"Length": 0.521739,
+					"StartTime": 153.913043,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "avoid",
+					"Rail": -2,
+					"Length": 0.391304,
+					"StartTime": 156.000000,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": -2,
+					"Length": 0.391304,
+					"StartTime": 158.086957,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.260870,
+					"StartTime": 160.173913,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "avoid",
+					"Rail": -2,
+					"Length": 0.652174,
+					"StartTime": 162.260870,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.260870,
+					"StartTime": 164.347826,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": -2,
+					"Length": 0.652174,
+					"StartTime": 166.434783,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "avoid",
+					"Rail": -1,
+					"Length": 0.391304,
+					"StartTime": 168.521739,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "hold",
+					"Rail": -1,
+					"Length": 0.521739,
+					"StartTime": 170.608696,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "hold",
+					"Rail": 0,
+					"Length": 0.521739,
+					"StartTime": 172.695652,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": -2,
+					"Length": 0.260870,
+					"StartTime": 174.782609,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "hold",
+					"Rail": -2,
+					"Length": 0.260870,
+					"StartTime": 176.869565,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "hold",
+					"Rail": 0,
+					"Length": 0.260870,
+					"StartTime": 178.956522,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.130435,
+					"StartTime": 181.043478,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "hold",
+					"Rail": -2,
+					"Length": 0.521739,
+					"StartTime": 183.130435,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": -1,
+					"Length": 0.130435,
+					"StartTime": 185.217391,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.652174,
+					"StartTime": 187.304348,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": 0,
+					"Length": 0.521739,
+					"StartTime": 189.391304,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.652174,
+					"StartTime": 191.478261,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.652174,
+					"StartTime": 193.565217,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 0,
+					"Length": 0.391304,
+					"StartTime": 195.652174,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 0,
+					"Length": 0.652174,
+					"StartTime": 197.739130,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": -2,
+					"Length": 0.652174,
+					"StartTime": 199.826087,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 0,
+					"Length": 0.130435,
+					"StartTime": 201.913043,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.391304,
+					"StartTime": 204.000000,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "hold",
+					"Rail": -1,
+					"Length": 0.391304,
+					"StartTime": 206.086957,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "hold",
+					"Rail": -2,
+					"Length": 0.521739,
+					"StartTime": 208.173913,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": -1,
+					"Length": 0.391304,
+					"StartTime": 210.260870,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 0,
+					"Length": 0.521739,
+					"StartTime": 212.347826,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": -2,
+					"Length": 0.652174,
+					"StartTime": 214.434783,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "avoid",
+					"Rail": 0,
+					"Length": 0.391304,
+					"StartTime": 216.521739,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.521739,
+					"StartTime": 218.608696,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "avoid",
+					"Rail": 2,
+					"Length": 0.260870,
+					"StartTime": 220.695652,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "hold",
+					"Rail": 1,
+					"Length": 0.260870,
+					"StartTime": 222.782609,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "avoid",
+					"Rail": -1,
+					"Length": 0.130435,
+					"StartTime": 224.869565,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.652174,
+					"StartTime": 226.956522,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "avoid",
+					"Rail": -2,
+					"Length": 0.652174,
+					"StartTime": 229.043478,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "hold",
+					"Rail": -2,
+					"Length": 0.260870,
+					"StartTime": 231.130435,
+					"DelayTime": 3.130435
+			},
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.260870,
+					"StartTime": 233.217391,
+					"DelayTime": 1.043478
+			},
+			{
+					"Type": "flick",
+					"Rail": 1,
+					"Length": 0.521739,
+					"StartTime": 235.304348,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": 2,
+					"Length": 0.260870,
+					"StartTime": 237.391304,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "avoid",
+					"Rail": -2,
+					"Length": 0.652174,
+					"StartTime": 239.478261,
+					"DelayTime": 4.173913
+			},
+			{
+					"Type": "flick",
+					"Rail": -1,
+					"Length": 0.652174,
+					"StartTime": 241.565217,
+					"DelayTime": 4.173913
+			},
+	]
+}
