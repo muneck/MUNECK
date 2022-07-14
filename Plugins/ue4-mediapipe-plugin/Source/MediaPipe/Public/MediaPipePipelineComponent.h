@@ -10,7 +10,7 @@ class MEDIAPIPE_API UMediaPipePipelineComponent : public UActorComponent
 
 public:
 	UMediaPipePipelineComponent();
-
+	virtual ~UMediaPipePipelineComponent() {};
 	// UObject
 	void BeginDestroy() override;
 

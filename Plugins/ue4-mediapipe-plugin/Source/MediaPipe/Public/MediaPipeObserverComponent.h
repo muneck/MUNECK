@@ -27,6 +27,7 @@ class MEDIAPIPE_API UMediaPipeObserverComponent :
 
 public:
 	UMediaPipeObserverComponent();
+	virtual ~UMediaPipeObserverComponent() {};
 
 	// Config
 

@@ -2,6 +2,46 @@
 <!-- steps to add to build additions -->
 <root xmlns:android="http://schemas.android.com/apk/res/android">
 
+	<!--copy aar,assets and jni to location-->
+	<!-- optional files or directories to copy to Intermediate/Android/APK -->
+	<resourceCopies>
+		<copyDir src="$S(PluginDir)/Android/jniLibs/"
+							dst="$S(BuildDir)/jniLibs/" />
+		<copyDir src="$S(PluginDir)/Android/assets/"
+							dst="$S(BuildDir)/assets/" />
+		<copyDir src="$S(PluginDir)/Android/libs/"
+							dst="$S(BuildDir)/libs/" />
+		<!--<copyFile src="$S(PluginDir)/Android/libs/mediapipe_face_mesh_gpu.aar" dst="$S(BuildDir)/src/main/libs/mediapipe_face_mesh_gpu.aar" />-->
+		<copyFile src="$S(PluginDir)/Android/libs/mediapipe_face_mesh_gpu.aar" dst="$S(BuildDir)/libs/mediapipe_face_mesh_gpu.aar" />
+		<!--
+			<log text="Copying libopencv_java3.so"/>
+			<isArch arch="armeabi-v7a">
+				<copyFile src="$S(PluginDir)ThirdParty/Test_so/libtest.so"
+								dst="$S(BuildDir)/scr/main/jniLibs/armeabi-v7a/libopencv_java3.so" />
+			
+			</isArch>
+			<isArch arch="arm64-v8a">
+				<copyFile src="$S(PluginDir)ThirdParty/Test_so/libtest.so"
+								dst="$S(BuildDir)/scr/main/jniLibs/arm64-v8a/libopencv_java3.so" />
+			
+			</isArch>
+		-->
+	</resourceCopies>
+
+	<AARImports>
+		<insertValue value="repository $S(PluginDir)/Android/libs"/>
+		<insertNewline/>
+	</AARImports>
+	
+	<!--Manifest.xml manipulation-->
+	<androidManifestUpdates> 
+		<addPermission android:name="android.permission.CAMERA" />
+		<addFeature android:name="android.hardware.camera"/>
+		<addFeature android:name="android.hardware.camera.autofocus"/>
+		<addFeature android:glEsVersion="0x00020000" android:required="true"/>
+	</androidManifestUpdates>
+	
+
 
 	<buildGradleAdditions>
 		<insert>
@@ -9,12 +49,6 @@
 			compileSdkVersion 32
 			buildToolsVersion "32.0.0"
 
-			defaultConfig {
-			applicationId "com.example.aartest"
-			minSdkVersion 21
-			targetSdkVersion 32
-			versionCode 1
-			versionName "1.0"
 
 			buildTypes {
 			release {
@@ -30,8 +64,10 @@
 
 			repositories {
 			flatDir {
-			// dirs 'libs'
+			dirs 'libs'
 			dirs'src/main/libs'
+			//dirs'src/main/assets'
+			//dirs'src/main'
 			}
 			}
 
@@ -63,44 +99,89 @@
 			}
 
 		</insert>
+		<!--WEB solution to support CameraX https://www.artstation.com/blogs/alyamkin/qwle/unreal-engine-4-and-androidx -->
+		<insert>
+
+
+        //apply plugin: 'com.android.application'
+
+
+        allprojects {
+            def mappings = [
+                'android.support.annotation': 'androidx.annotation',
+                'android.arch.lifecycle': 'androidx.lifecycle',
+                'android.support.v4.app.NotificationCompat': 'androidx.core.app.NotificationCompat',
+                'android.support.v4.app.NotificationManagerCompat': 'androidx.core.app.NotificationManagerCompat',
+                'android.support.v4.app.ActivityCompat': 'androidx.core.app.ActivityCompat',
+                'android.support.v4.content.ContextCompat': 'androidx.core.content.ContextCompat',
+                'android.support.v4.content.FileProvider': 'androidx.core.content.FileProvider',
+                'android.support.v13.app.FragmentCompat': 'androidx.legacy.app.FragmentCompat',
+                'android.arch.lifecycle.Lifecycle': 'androidx.lifecycle.Lifecycle',
+                'android.arch.lifecycle.LifecycleObserver': 'androidx.lifecycle.LifecycleObserver',
+                'android.arch.lifecycle.OnLifecycleEvent': 'androidx.lifecycle.OnLifecycleEvent',
+                'android.arch.lifecycle.ProcessLifecycleOwner': 'androidx.lifecycle.ProcessLifecycleOwner',
+            ]
+
+
+            afterEvaluate { project ->
+                project.rootProject.projectDir.traverse(type: groovy.io.FileType.FILES, nameFilter: ~/.*\.java$/) { f ->
+                    mappings.each { entry ->
+                        if (f.getText('UTF-8').contains(entry.key)) {
+                            println "Updating ${entry.key} to ${entry.value} in file ${f}"
+                            ant.replace(file: f, token: entry.key, value: entry.value)
+                        }
+                    }
+                }
+            }
+        }
+		</insert>
 	</buildGradleAdditions>
 
-	<!--copy aar,assets and jni to location-->
-	<!-- optional files or directories to copy to Intermediate/Android/APK -->
-	<resourceCopies>
-		<copyDir src="$S(PluginDir)Android/jniLibs/"
-							dst="$S(BuildDir)/scr/main/jniLibs/" />
-		<copyDir src="$S(PluginDir)Android/assets/"
-							dst="$S(BuildDir)/scr/main/assets/" />
-		<copyDir src="$S(PluginDir)Android/libs/"
-							dst="$S(BuildDir)/scr/main/libs/" />
-		<!--
-			<log text="Copying libopencv_java3.so"/>
-			<isArch arch="armeabi-v7a">
-				<copyFile src="$S(PluginDir)ThirdParty/Test_so/libtest.so"
-								dst="$S(BuildDir)/scr/main/jniLibs/armeabi-v7a/libopencv_java3.so" />
-			
-			</isArch>
-			<isArch arch="arm64-v8a">
-				<copyFile src="$S(PluginDir)ThirdParty/Test_so/libtest.so"
-								dst="$S(BuildDir)/scr/main/jniLibs/arm64-v8a/libopencv_java3.so" />
-			
-			</isArch>
-		-->
-	</resourceCopies>
+	<gradleProperties>
+		<insert>
+			android.useAndroidX=true
+			android.enableJetifier=true
+		</insert>
+	</gradleProperties>
+	
+	
 
 	<gameActivityImportAdditions>
 		<insert>
+			import android.graphics.SurfaceTexture;
+			
+			import android.os.Handler;
+			import android.util.Log;
+			import android.util.Size;
+			import android.view.SurfaceHolder;
+			import android.view.SurfaceView;
+			import android.view.View;
+			import android.view.ViewGroup;
+			
+			import androidx.appcompat.app.AppCompatActivity;
+			
+			import com.Muneck.MUNECK_v2.R;
 			import com.google.mediapipe.components.CameraHelper;
 			import com.google.mediapipe.components.CameraXPreviewHelper;
 			import com.google.mediapipe.components.ExternalTextureConverter;
 			import com.google.mediapipe.components.FrameProcessor;
-			import com.google.mediapipe.components.PermissionHelper;
+			//import com.google.mediapipe.components.PermissionHelper;
 			import com.google.mediapipe.framework.AndroidAssetUtil;
 			import com.google.mediapipe.glutil.EglManager;
+			
+			//lifecycle debug
+			import android.arch.lifecycle.Lifecycle;
+			import android.arch.lifecycle.LifecycleObserver;
+			import android.arch.lifecycle.OnLifecycleEvent;
+			import android.arch.lifecycle.ProcessLifecycleOwner;
 		</insert>
 	</gameActivityImportAdditions>
-
+	
+	<gameActivityImplementsAdditions>
+		<insert>
+		</insert>
+	</gameActivityImplementsAdditions>
+	
 	<gameActivityClassAdditions>
 		<!--class variables-->
 		<insert>
@@ -154,7 +235,9 @@
 		<!--functions-->
 		<insert>
 			protected int getContentViewLayoutResId() {
-			return R.layout.activity_main;
+			return 0;
+			//not use for UE4 because we don't need to display anything on the frontend
+			//return com.Muneck.MUNECK_v2.R.layout.activity_main;
 			}
 
 			protected void onCameraStarted(SurfaceTexture surfaceTexture) {
@@ -209,8 +292,9 @@
 
 			private void setupPreviewDisplayView() {
 			previewDisplayView.setVisibility(View.GONE);
-			ViewGroup viewGroup = findViewById(R.id.preview_display_layout);
-			viewGroup.addView(previewDisplayView);
+			//disable for UE4 as R.id cannot resolve
+			//ViewGroup viewGroup = findViewById(com.Muneck.MUNECK_v2.R.id.preview_display_layout);
+			//viewGroup.addView(previewDisplayView);
 
 			previewDisplayView
 			.getHolder()
@@ -254,24 +338,27 @@
 		</insert>
 		<!--override functions-->
 		<insert>
+			/* * Disable for UE4 for unknow error occuring
 			@Override
 			public void onRequestPermissionsResult(
 			int requestCode, String[] permissions, int[] grantResults) {
 			super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-			PermissionHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
+			com.google.mediapipe.components.PermissionHelper.onRequestPermissionsResult(requestCode, permissions, grantResults);
 			}
+			*/
 		</insert>
 	</gameActivityClassAdditions>
 
 	<gameActivityOnCreateAdditions>
 		<insert>
-			setContentView(getContentViewLayoutResId());
+			//not use for UE4 because we don't need to display anything on the frontend
+			//setContentView(getContentViewLayoutResId());
 
 			try {
 			applicationInfo =
 			getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
 			} catch (NameNotFoundException e) {
-			Log.e(TAG, "Cannot find application info: " + e);
+			//Log.e(TAG, "Cannot find application info: " + e);
 			}
 
 			previewDisplayView = new SurfaceView(this);
@@ -284,7 +371,7 @@
 			processor =
 			new FrameProcessor(this,eglManager.getNativeContext());
 			processor.getVideoSurfaceOutput().setFlipY(true);
-			PermissionHelper.checkAndRequestCameraPermissions(this);
+			com.google.mediapipe.components.PermissionHelper.checkAndRequestCameraPermissions(this);
 		</insert>
 	</gameActivityOnCreateAdditions>
 
@@ -297,7 +384,7 @@
 			converter.setFlipY(
 			applicationInfo.metaData.getBoolean("flipFramesVertically", FLIP_FRAMES_VERTICALLY));
 			converter.setConsumer(processor);
-			if (PermissionHelper.cameraPermissionsGranted(this)) {
+			if (com.google.mediapipe.components.PermissionHelper.cameraPermissionsGranted(this)) {
 			startCamera();
 			}
 
@@ -307,7 +394,7 @@
 			float turn=processor.mediapipe_api_get_turn();
 			float tilt=processor.mediapipe_api_get_tilt();
 			float nod=processor.mediapipe_api_get_nod();
-			Log.println(7,"MainActivity","Head turn,tilt,nod="+Float.toString(turn)+" "+Float.toString(tilt)+" "+Float.toString(nod));
+			//Log.println(7,"MainActivity","Head turn,tilt,nod="+Float.toString(turn)+" "+Float.toString(tilt)+" "+Float.toString(nod));
 			}
 			}, delay);
 		</insert>

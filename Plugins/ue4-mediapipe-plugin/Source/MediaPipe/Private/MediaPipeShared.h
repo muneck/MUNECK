@@ -24,6 +24,7 @@ struct UmpMat4
 	};
 };
 
+#if PLATFORM_WINDOWS
 class TypeInfo {
 public:
 	template <typename T>
@@ -54,6 +55,23 @@ inline bool UmpCompareType(class IUmpObserver* observer)
 {
 	return (observer->GetMessageType() == TypeInfo::Get<T>().hash_code());
 }
+#elif PLATFORM_ANDROID
+class TypeInfo {
+
+};
+
+template<typename T>
+inline bool UmpCompareType(size_t type)
+{
+	return true;
+}
+
+template<typename T>
+inline bool UmpCompareType(class IUmpObserver* observer)
+{
+	return true;
+}
+#endif
 
 template<typename T>
 inline const T& UmpCastPacket(const void * const pk_data)

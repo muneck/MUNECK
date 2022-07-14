@@ -4,7 +4,7 @@
 #include "DrawDebugHelpers.h"
 #include <vector>
 
-#if 1 //PLATFORM_WINDOWS
+#if PLATFORM_WINDOWS
 #include "mediapipe/framework/formats/landmark.pb.h"
 #endif
 using FMediaPipeLandmarkList = TArray<FMediaPipeLandmark>;
@@ -196,6 +196,11 @@ UMediaPipeLandmarkObserverComponent::UMediaPipeLandmarkObserverComponent()
 }
 
 //delete parser, no outside reference
+
+void UMediaPipeLandmarkObserverComponent::OnUmpPacket(IUmpObserver* Observer)
+{
+	
+}
 
 const TArray<FMediaPipeLandmark>& UMediaPipeLandmarkObserverComponent::GetLandmarkList(int ObjectId)
 {

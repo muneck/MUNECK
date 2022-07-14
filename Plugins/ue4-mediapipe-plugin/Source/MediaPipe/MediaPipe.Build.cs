@@ -17,7 +17,7 @@ public class MediaPipe : ModuleRules
     {
         PCHUsage = PCHUsageMode.NoPCHs; // UseExplicitOrSharedPCHs;
         bUseUnity = false;
-        bUseRTTI = true;
+        bUseRTTI = false;
 
         if (Target.Platform == UnrealTargetPlatform.Win64)
         {
@@ -78,11 +78,12 @@ public class MediaPipe : ModuleRules
             AddDep("libprotobuf", DllExt, ProtobufBinDir, BinaryOutputDir);
 
             // mediapipe deps
-            //note:protobuf is explicit linked,
+            //note:mediapipe is explicit linked,
             //meaning it has no .lib and need to use things like DllLoader,
             //for now we only need to add runtime deps on the dll
 
-            string MPBinDir = Path.Combine(ThirdPartyDir, "mediapipe", "Binaries", BinArch);
+            PublicIncludePaths.Add(Path.Combine(ModulePath, "Private", "Windows"));
+            string MPBinDir = Path.Combine(ThirdPartyDir,  "mediapipe", "Binaries", BinArch);
             string MPDataDir = Path.Combine(ThirdPartyDir, "mediapipe", "Data");// contains all the .tflites and .pbtxt file
 
             AddDep("opencv_world3410", DllExt, MPBinDir, BinaryOutputDir);
@@ -96,7 +97,7 @@ public class MediaPipe : ModuleRules
             AdditionalPropertiesForReceipt.Add(new ReceiptProperty("AndroidPlugin", Path.Combine(ModuleDirectory, "MP_Android_APL.xml")));
 
             string ThirdPartyDir = Path.Combine(ModuleDirectory, "..", "..", "ThirdParty");
-            PublicIncludePaths.Add(Path.Combine(ThirdPartyDir, "protobuf", "Include"));
+            //PublicIncludePaths.Add(Path.Combine(ThirdPartyDir, "protobuf", "Include"));
         }
 
         

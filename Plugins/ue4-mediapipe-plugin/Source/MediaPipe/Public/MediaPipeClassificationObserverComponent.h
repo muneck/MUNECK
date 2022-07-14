@@ -30,7 +30,7 @@ class MEDIAPIPE_API UMediaPipeClassificationObserverComponent : public UMediaPip
 
 public:
 	UMediaPipeClassificationObserverComponent();
-
+	virtual ~UMediaPipeClassificationObserverComponent() {};
 	// Getters
 
 	UFUNCTION(Category="MediaPipe", BlueprintCallable, BlueprintPure)

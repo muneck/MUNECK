@@ -60,7 +60,7 @@ class MEDIAPIPE_API UMediaPipeLandmarkObserverComponent : public UMediaPipeObser
 
 public:
 	UMediaPipeLandmarkObserverComponent();
-
+	virtual ~UMediaPipeLandmarkObserverComponent() {};
 	// Config
 
 	UPROPERTY(Category="MediaPipe|Landmarks", BlueprintReadWrite, EditAnywhere)
