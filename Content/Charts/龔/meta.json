@@ -1,0 +1,17 @@
+{
+  "Name": "龔",
+  "MusicFile": "龔.mp3",
+  "IllustrationFile": "null",
+  "Artist": "null",
+  "Illustrator": "null",
+  "ChartOffset": 0.0,
+  "BPM": 165,
+  "Difficulties": [
+    {
+      "DifficultyName": "Easy",
+      "Difficulty": 5,
+      "Chart": "chart5.json",
+      "ChartDesigner": "MUNECK TEAM"
+    }
+  ]
+}

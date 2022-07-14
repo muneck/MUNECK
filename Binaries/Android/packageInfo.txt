@@ -1,0 +1,4 @@
+com.Muneck.MUNECK_v2
+1
+1.0
+name='com.epicgames.ue4.GameActivity.AppType' value=''

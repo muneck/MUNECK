@@ -1,0 +1,17 @@
+{
+  "Name": "Ocean - Short Ver",
+  "MusicFile": "Ocean-Short Ver.mp3",
+  "IllustrationFile": "null",
+  "Artist": "嗯哒喵",
+  "Illustrator": "MUNECK Dev Team",
+  "ChartOffset": 0.0,
+  "BPM": 86,
+  "Difficulties": [
+    {
+      "DifficultyName": "Easy",
+      "Difficulty": 5,
+      "Chart": "chart5.json",
+      "ChartDesigner": "MUNECK Dev Team"
+    }
+  ]
+}
