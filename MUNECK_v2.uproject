@@ -42,11 +42,6 @@
 			"Name": "RuntimeAudioImporter",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/81fd278e318e4235a028d3fdf46bf036"
-		},
-		{
-			"Name": "BlueprintJson",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/f837e4835fbc434a853fe1ead2410b84"
 		}
 	]
 }

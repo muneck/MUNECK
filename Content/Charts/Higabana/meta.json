@@ -1,0 +1,17 @@
+{
+    "Name": "Higabana",
+    "MusicFile": "music.mp3",
+    "IllustrationFile": "null",
+    "Artist": "Sergio--Su",
+    "Illustrator": "null",
+    "ChartOffset": 0.0,
+    "BPM": 115,
+    "Difficulties": [
+        {
+            "DifficultyName": "Easy",
+            "Difficulty": 4,
+            "Chart": "chart4.json",
+            "ChartDesigner": "sad kev from the MUNECK team"
+        }
+    ]
+}
