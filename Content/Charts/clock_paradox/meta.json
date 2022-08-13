@@ -1,0 +1,16 @@
+{
+  "Name": "Clock Paradox",
+  "MusicFile": "music.mp3",
+  "IllustrationFile": "null",
+  "Artist": "Phigros",
+  "Illustrator": "null",
+  "ChartOffset": 0.0,
+  "Difficulties": [
+    {
+      "DifficultyName": "Easy",
+      "Difficulty": 2,
+      "Chart": "chart2.json",
+      "ChartDesigner": "MUNECK team"
+    }
+  ]
+}
